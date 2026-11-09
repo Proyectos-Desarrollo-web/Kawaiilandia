@@ -1,0 +1,9 @@
+node_modules/
+.env
+*.log
+.DS_Store
+# Imágenes subidas por los usuarios (se conservan solo las carpetas)
+public/uploads/avatars/*
+!public/uploads/avatars/.gitkeep
+public/uploads/products/*
+!public/uploads/products/.gitkeep
