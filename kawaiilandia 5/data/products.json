@@ -1,0 +1,132 @@
+[
+  {
+    "id": "vacas-corredoras",
+    "name": "Vacas corredoras",
+    "category": "Peluches",
+    "price": 40000,
+    "tag": "Más vendido",
+    "image": "https://images.unsplash.com/photo-1631567210298-d385d8d9476c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800",
+    "colors": [
+      "Blanco y negro"
+    ],
+    "description": "Divertidas vacas corredoras, un detalle original para sorprender a alguien especial.",
+    "material": "",
+    "sizes": []
+  },
+  {
+    "id": "domo-snoopy",
+    "name": "Domo de Snoopy",
+    "category": "Peluches",
+    "price": 80000,
+    "tag": "Nuevo",
+    "image": "https://images.unsplash.com/photo-1762089423685-60f5cef02cda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800",
+    "colors": [
+      "Blanco"
+    ],
+    "description": "Domo de Snoopy para decorar tu espacio o regalar a quien más quieres.",
+    "material": "",
+    "sizes": []
+  },
+  {
+    "id": "peluche-kawaii",
+    "name": "Peluche kawaii",
+    "category": "Peluches",
+    "price": 45000,
+    "tag": "",
+    "image": "https://images.unsplash.com/photo-1744608257868-b3a034a85d22?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800",
+    "colors": [
+      "Rosa",
+      "Blanco",
+      "Café"
+    ],
+    "description": "Peluche suave y abrazable, perfecto para regalar o sumar a tu colección.",
+    "material": "Felpa suave con relleno hipoalergénico",
+    "sizes": [
+      "30 cm",
+      "45 cm"
+    ]
+  },
+  {
+    "id": "mug-personalizado",
+    "name": "Mug personalizado",
+    "category": "Mugs",
+    "price": 25000,
+    "tag": "",
+    "image": "https://images.unsplash.com/photo-1610632380989-680fe40816c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800",
+    "colors": [
+      "Blanco",
+      "Rosa"
+    ],
+    "description": "Mug con diseños kawaii para acompañar tus mañanas de estudio o trabajo.",
+    "material": "Cerámica",
+    "sizes": [
+      "11 oz"
+    ]
+  },
+  {
+    "id": "termo-personalizado",
+    "name": "Termo personalizado",
+    "category": "Termos",
+    "price": 55000,
+    "tag": "",
+    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800",
+    "colors": [
+      "Rosa",
+      "Lila",
+      "Celeste"
+    ],
+    "description": "Termo para llevar tu bebida favorita a todas partes, con diseño a tu gusto.",
+    "material": "Acero inoxidable",
+    "sizes": [
+      "500 ml"
+    ]
+  },
+  {
+    "id": "cuadro-aluminio",
+    "name": "Cuadro en aluminio",
+    "category": "Cuadros en aluminio",
+    "price": 60000,
+    "tag": "Edición limitada",
+    "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800",
+    "colors": [
+      "Multicolor"
+    ],
+    "description": "Cuadro impreso en aluminio de colores vivos y acabado duradero, listo para colgar.",
+    "material": "Aluminio",
+    "sizes": [
+      "20x30 cm"
+    ]
+  },
+  {
+    "id": "globo-burbuja",
+    "name": "Globo burbuja",
+    "category": "Globos burbuja",
+    "price": 18000,
+    "tag": "",
+    "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800",
+    "colors": [
+      "Transparente",
+      "Rosa"
+    ],
+    "description": "Globo burbuja para sorprender: transparente, grande y personalizable.",
+    "material": "",
+    "sizes": [
+      "18 pulgadas"
+    ]
+  },
+  {
+    "id": "ancheta-detalle",
+    "name": "Ancheta de regalo",
+    "category": "Ancheteas y detalles",
+    "price": 70000,
+    "tag": "",
+    "image": "https://images.unsplash.com/photo-1607344645866-009c320b63e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800",
+    "colors": [
+      "Rosa",
+      "Lila"
+    ],
+    "description": "Ancheta armada a tu gusto con detalles kawaii, ideal para cumpleaños y fechas especiales.",
+    "material": "",
+    "sizes": []
+  }
+]
