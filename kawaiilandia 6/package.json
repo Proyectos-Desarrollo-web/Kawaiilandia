@@ -1,0 +1,31 @@
+{
+  "name": "kawaiilandia",
+  "version": "6.0.0",
+  "description": "Kawaiilandia - Trabajo Integrador, Sprint 6 (Bases de datos con Sequelize)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "db:setup": "node scripts/setup-db.js all",
+    "db:structure": "node scripts/setup-db.js structure",
+    "db:data": "node scripts/setup-db.js data"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^18.0.9",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "method-override": "^3.0.0",
+    "multer": "^2.0.2",
+    "mysql2": "^3.24.6",
+    "sequelize": "^6.37.8"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.5"
+  }
+}

@@ -1,0 +1,34 @@
+<%
+  // Parámetros: pagination { page, pages, total, hasPrev, hasNext }, basePath ('/products') y params ({ q, categoria... })
+  const pageUrl = (n) => {
+    const query = Object.entries(params || {})
+      .filter(([, value]) => value)
+      .map(([key, value]) => `${key}=${encodeURIComponent(value)}`);
+    if (n > 1) query.push(`page=${n}`);
+    return basePath + (query.length ? '?' + query.join('&') : '');
+  };
+%>
+<% if (pagination.pages > 1) { %>
+  <nav class="pagination" aria-label="Paginación">
+    <% if (pagination.hasPrev) { %>
+      <a class="btn btn--ghost btn--sm" href="<%= pageUrl(pagination.page - 1) %>" rel="prev">← Anterior</a>
+    <% } else { %>
+      <span class="btn btn--ghost btn--sm is-disabled" aria-disabled="true">← Anterior</span>
+    <% } %>
+
+    <ul class="pagination__pages">
+      <% for (let n = 1; n <= pagination.pages; n++) { %>
+        <li>
+          <a class="chip<%= n === pagination.page ? ' chip--active' : '' %>" href="<%= pageUrl(n) %>"<%- n === pagination.page ? ' aria-current="page"' : '' %> aria-label="Página <%= n %>"><%= n %></a>
+        </li>
+      <% } %>
+    </ul>
+
+    <% if (pagination.hasNext) { %>
+      <a class="btn btn--ghost btn--sm" href="<%= pageUrl(pagination.page + 1) %>" rel="next">Siguiente →</a>
+    <% } else { %>
+      <span class="btn btn--ghost btn--sm is-disabled" aria-disabled="true">Siguiente →</span>
+    <% } %>
+  </nav>
+  <p class="pagination__info">Página <%= pagination.page %> de <%= pagination.pages %> · <%= pagination.total %> en total</p>
+<% } %>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+<body>
+  <%- include('../partials/header') %>
+
+  <main id="contenido" class="page-main">
+    <div class="container">
+      <div class="toolbar">
+        <div>
+          <h1 class="page-title">Usuarios</h1>
+          <p><%= pagination.total %> <%= pagination.total === 1 ? 'usuario registrado' : 'usuarios registrados' %>.</p>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="users-table">
+          <caption class="sr-only">Listado de usuarios</caption>
+          <thead>
+            <tr><th scope="col">Usuario</th><th scope="col">Correo</th><th scope="col">Tipo</th><th scope="col"><span class="sr-only">Acciones</span></th></tr>
+          </thead>
+          <tbody>
+            <% users.forEach((u) => { %>
+              <tr>
+                <td>
+                  <span class="users-table__user">
+                    <img src="<%= u.image %>" onerror="this.onerror=null;this.src='/img/logo.svg'" alt="" width="36" height="36">
+                    <%= u.firstName %> <%= u.lastName %>
+                  </span>
+                </td>
+                <td><%= u.email %></td>
+                <td><span class="pill"><%= u.category === 'admin' ? 'Administrador' : 'Cliente' %></span></td>
+                <td class="users-table__actions">
+                  <a class="btn btn--ghost btn--sm" href="/users/<%= u.id %>" aria-label="Ver a <%= u.firstName %> <%= u.lastName %>">Ver</a>
+                  <a class="btn btn--ghost btn--sm" href="/users/<%= u.id %>/edit" aria-label="Editar a <%= u.firstName %> <%= u.lastName %>">Editar</a>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+
+      <%- include('../partials/pagination', { pagination, basePath: '/users', params: {} }) %>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>
