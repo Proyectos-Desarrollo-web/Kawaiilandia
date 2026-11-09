@@ -1,0 +1,70 @@
+WEEKLY - SPRINT 4 (JSON Y METODOS HTTP)
+
+Integrantes:
+- Neider Stiven Triana Neira
+- Julian David Pinzon Duran
+- Liseth Yurani Rodriguez Solano
+
+Periodo: ____/____/________ a ____/____/________
+
+Objetivo del sprint: que el sitio muestre productos dinamicamente desde archivos JSON y tenga el CRUD completo de productos (listado, detalle, creacion, edicion y borrado).
+
+
+REUNION SEMANAL
+
+Fecha: ____/____/________
+Asistentes: Neider Stiven Triana Neira, Julian David Pinzon Duran, Liseth Yurani Rodriguez Solano
+
+Que hizo cada integrante, impedimentos y que hara:
+
+Neider Stiven Triana Neira
+- Que hizo: 
+- Impedimentos: 
+- Que hara: 
+
+Julian David Pinzon Duran
+- Que hizo: 
+- Impedimentos: 
+- Que hara: 
+
+Liseth Yurani Rodriguez Solano
+- Que hizo: 
+- Impedimentos: 
+- Que hara: 
+
+
+AVANCE TECNICO
+
+Estado: Hecho / En curso. Responsable: completar con el integrante a cargo.
+
+1. Definir campos y generar data/products.json (id, name, description, image, category, colors, price) - Hecho - Responsable: ______
+2. Definir campos y generar data/users.json (id, firstName, lastName, email, password, category, image) - Hecho - Responsable: ______
+3. GET /products (listado) - Hecho - Responsable: ______
+4. GET /products/:id (detalle) - Hecho - Responsable: ______
+5. GET /products/create y POST /products (creacion) - Hecho - Responsable: ______
+6. GET /products/:id/edit y PUT /products/:id (edicion) - Hecho - Responsable: ______
+7. DELETE /products/:id (borrado, con confirmacion) - Hecho - Responsable: ______
+8. method-override para usar PUT y DELETE desde formularios HTML - Hecho - Responsable: ______
+9. Campo colors en formulario, detalle y validacion - Hecho - Responsable: ______
+10. Redirecciones desde las rutas viejas (/productos...) - Hecho - Responsable: ______
+11. Fotos reales en los productos y catalogo actualizado de la tienda - Hecho - Responsable: ______
+12. Retro del Sprint 3 y tablero actualizado - En curso - Responsable: ______
+
+
+DECISIONES TECNICAS
+
+- Las rutas pasaron de /productos a /products para seguir la convencion del enunciado; las viejas redirigen con codigo 301.
+- Los formularios HTML solo soportan GET y POST: PUT y DELETE se envian con ?_method= y la libreria method-override.
+- Las contrasenas de users.json estan hasheadas con scrypt (modulo crypto de Node), no en texto plano.
+- Los archivos JSON siguen siendo una fuente de datos temporal, previa a la base de datos.
+- Las imagenes de los productos son fotos reales de Unsplash (licencia gratuita) cargadas por URL.
+
+
+IMPEDIMENTOS
+
+- (anotar los bloqueos del equipo)
+
+
+PROXIMOS PASOS
+
+- (anotar lo que se hara la proxima semana)

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+<body>
+  <%- include('../partials/header') %>
+
+  <main id="contenido" class="page-main">
+    <div class="container">
+      <div class="auth">
+        <aside class="auth__aside">
+          <h2>Únete a Kawaiilandia 💜</h2>
+          <p>Crea tu cuenta y disfruta de una compra más fácil.</p>
+          <ul class="auth__benefits">
+            <li><span aria-hidden="true">🧾</span> Consulta tu historial de compras</li>
+            <li><span aria-hidden="true">⚡</span> Compra más rápido, sin repetir tus datos</li>
+            <li><span aria-hidden="true">🌸</span> Entérate primero de las novedades</li>
+          </ul>
+          <img src="https://images.unsplash.com/photo-1631567210298-d385d8d9476c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800" alt="" width="140" height="140">
+        </aside>
+
+        <div class="auth__form">
+          <h1>Crear cuenta</h1>
+          <p>Completa tus datos para registrarte.</p>
+
+          <form action="#" method="post" novalidate>
+            <div class="field">
+              <label for="name">Nombre completo</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Correo electrónico</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="nombre@correo.com" required>
+            </div>
+            <div class="field">
+              <label for="phone">Teléfono <small>(opcional)</small></label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="315 000 00 00">
+            </div>
+            <div class="field">
+              <label for="password">Contraseña</label>
+              <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+              <p class="field__hint">Mínimo 8 caracteres.</p>
+            </div>
+            <div class="field">
+              <label for="password2">Confirmar contraseña</label>
+              <input id="password2" name="password2" type="password" autocomplete="new-password" required>
+            </div>
+            <label class="check">
+              <input type="checkbox" name="terms" required>
+              <span>Acepto los términos y condiciones y la política de tratamiento de datos.</span>
+            </label>
+            <button class="btn btn--lg btn--block" type="submit">Crear cuenta ✨</button>
+          </form>
+          <p class="auth__switch">¿Ya tienes cuenta? <a href="/login">Ingresa aquí</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

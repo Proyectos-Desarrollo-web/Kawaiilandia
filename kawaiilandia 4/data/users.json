@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "firstName": "Valentina",
+    "lastName": "Rojas",
+    "email": "valentina.rojas@example.com",
+    "password": "scrypt$9846cc730f77dc34b0e5197d525d121e$4f938b34a3c19061fb3cc018dd47e76b73291e6dafe1b8723ff6a76d918ec59bc169d609162207e8e0196eabcedb9da341775ef315415c61b679079dd377d9c4",
+    "category": "admin",
+    "image": "/img/logo.svg"
+  },
+  {
+    "id": 2,
+    "firstName": "Sebastián",
+    "lastName": "Mendoza",
+    "email": "sebastian.mendoza@example.com",
+    "password": "scrypt$d67ccd7c165c110e47a1b42fa71d1049$74edbe7d207a38b1166e290ee253b04b003252ecb412b4edf93fe7e8fc510f1a3cae8442447b5db9f3993e1d5fbdee75b9c84ef058373a0ff10482e18fa0a652",
+    "category": "admin",
+    "image": "/img/logo.svg"
+  },
+  {
+    "id": 3,
+    "firstName": "Camila",
+    "lastName": "Torres",
+    "email": "camila.torres@example.com",
+    "password": "scrypt$f4d577fe59449ed9dd4cc470339cff69$758ba81e3122248f5a94f367753dc0c9e0a71f768799c05042b22436000f176d31895d8ad69d74a79fe9a6422a0e8be01e80ea013d49a498be38e7e74284fb19",
+    "category": "customer",
+    "image": "/img/logo.svg"
+  },
+  {
+    "id": 4,
+    "firstName": "Juan",
+    "lastName": "Gómez",
+    "email": "juan.gomez@example.com",
+    "password": "scrypt$ffc4eeda74e1bf47f67fd526737ba35f$627e24517298da6b8a424c0db21a5748572b2738d6c7b4adf32e4df32b6b6745d61171d45a2c65490c96818b2948ed86d280f958af38b5b79fadefa8c50b9fb0",
+    "category": "customer",
+    "image": "/img/logo.svg"
+  },
+  {
+    "id": 5,
+    "firstName": "Laura",
+    "lastName": "Pinzón",
+    "email": "laura.pinzon@example.com",
+    "password": "scrypt$0daa45d7bbb42506ba48e4ada1010227$040278d1765a98f7b60098bc28b4346d270f5c51031e2f931d95e0c611c2e7de9cf0a820d0adc8e5e41e1f77f72bfe276801db5a478553928f2f13339090a29f",
+    "category": "customer",
+    "image": "/img/logo.svg"
+  },
+  {
+    "id": 6,
+    "firstName": "Andrés",
+    "lastName": "Quintero",
+    "email": "andres.quintero@example.com",
+    "password": "scrypt$fe7d4312375e5f2813192ce64b3be485$7b3db2f52df8c243b7b433088ebb391ec4a700c9383b9ccd75b691d5f3823a725578376d1043f1c2c8c0cf7ab731e6e50847f4994f1b082fdbc44e143b1b0348",
+    "category": "customer",
+    "image": "/img/logo.svg"
+  },
+  {
+    "id": 7,
+    "firstName": "Daniela",
+    "lastName": "Ortiz",
+    "email": "daniela.ortiz@example.com",
+    "password": "scrypt$88e1938ea3993daf074fa6cbf180cef3$f6c4d0c420eb218e07b399dc6799c6972e7a8abad9e28e9360d1da28115db7cc30555c57d089dd1590fc417fe8d0025fc778ebfa153f2799bce79b1b6185fa01",
+    "category": "customer",
+    "image": "/img/logo.svg"
+  },
+  {
+    "id": 8,
+    "firstName": "Mateo",
+    "lastName": "Vargas",
+    "email": "mateo.vargas@example.com",
+    "password": "scrypt$abfb8e1a9d0cbb533a5fb06ef4a47fa4$15fa2d0e1333c94f943f5890fe861194c312d0edfa23b8ad291a0b60f67d7a09d41a3be6341ab41064bd581a790f859aeea75a1fef1aaea50052ba96073237a9",
+    "category": "customer",
+    "image": "/img/logo.svg"
+  }
+]

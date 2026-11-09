@@ -1,0 +1,104 @@
+RETROSPECTIVAS
+
+Dinamica: estrella de mar (Starfish).
+Equipo:
+- Neider Stiven Triana Neira
+- Julian David Pinzon Duran
+- Liseth Yurani Rodriguez Solano
+
+Como hacerla (15 a 20 minutos): cada integrante escribe ideas en notas (una por nota) para las 5 categorias, se agrupan las repetidas, se votan las mas importantes y se convierten en acuerdos concretos con responsable.
+
+Nota: el contenido de la retro del Sprint 3 es un borrador basado en el trabajo realizado en el repositorio. El equipo debe revisarlo y ajustarlo con lo que realmente converso en la reunion.
+
+
+------------------------------------------------------------
+RETRO DEL SPRINT 3 (TEMPLATE ENGINES CON EJS)
+------------------------------------------------------------
+
+Fecha: ____/____/________
+Participantes: Neider Stiven Triana Neira, Julian David Pinzon Duran, Liseth Yurani Rodriguez Solano
+
+Comenzar a hacer:
+- Repartir las tareas desde el inicio del sprint, indicando un responsable por cada una.
+- Probar los formularios con datos incorrectos antes de entregar.
+- Anotar en el tablero los impedimentos apenas aparezcan.
+
+Hacer mas:
+- Reutilizar componentes con parciales (head, header, footer, product-card).
+- Revisar entre todos los cambios antes de unirlos al proyecto.
+- Reuniones cortas durante la semana para ver el avance.
+
+Continuar haciendo:
+- Mantener la estructura MVC (rutas, controladores, modelos y vistas separados).
+- Validar los datos en el servidor y mostrar los errores por campo.
+- Documentar las decisiones tecnicas en el weekly.
+
+Hacer menos:
+- Dejar la documentacion (retro, weekly, tablero) para el final del sprint.
+- Datos y textos de ejemplo sin confirmar con la tienda.
+
+Dejar de hacer:
+- Trabajar varias personas sobre el mismo archivo sin avisar.
+- Dejar tareas sin estimar ni asignar.
+
+Acuerdos para el Sprint 4
+
+Acuerdo                                                        Responsable
+Actualizar el tablero de trabajo al inicio del sprint          ______________
+Completar retro y weekly durante la semana, no al final        ______________
+Probar cada ruta del CRUD antes de darla por terminada         ______________
+
+
+------------------------------------------------------------
+RETRO DEL SPRINT 2 (HTML + CSS)
+------------------------------------------------------------
+
+Fecha: ____/____/________
+Participantes: Neider Stiven Triana Neira, Julian David Pinzon Duran, Liseth Yurani Rodriguez Solano
+
+Comenzar a hacer:
+- 
+
+Hacer mas:
+- 
+
+Continuar haciendo:
+- 
+
+Hacer menos:
+- 
+
+Dejar de hacer:
+- 
+
+Acuerdos para el Sprint 3
+
+Acuerdo                                                        Responsable
+                                                               
+
+------------------------------------------------------------
+RETRO DEL SPRINT 1 (WIREFRAMES + BOCETO)
+------------------------------------------------------------
+
+Fecha: ____/____/________
+Participantes: Neider Stiven Triana Neira, Julian David Pinzon Duran, Liseth Yurani Rodriguez Solano
+
+Comenzar a hacer:
+- 
+
+Hacer mas:
+- 
+
+Continuar haciendo:
+- 
+
+Hacer menos:
+- 
+
+Dejar de hacer:
+- 
+
+Acuerdos para el Sprint 2
+
+Acuerdo                                                        Responsable
+                                                               

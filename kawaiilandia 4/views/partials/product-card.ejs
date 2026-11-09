@@ -1,0 +1,12 @@
+<article class="product-card">
+  <a class="product-card__img" href="/products/<%= product.id %>" tabindex="-1" aria-hidden="true">
+    <img src="<%= product.image %>" onerror="this.onerror=null;this.src='/img/logo.svg'" alt="" width="400" height="400" loading="lazy">
+    <% if (product.tag) { %><span class="pill"><%= product.tag %></span><% } %>
+  </a>
+  <div class="product-card__body">
+    <p class="product-card__cat"><%= product.category %></p>
+    <h3><a href="/products/<%= product.id %>"><%= product.name %></a></h3>
+    <p class="price"><%= formatPrice(product.price) %></p>
+    <a class="btn btn--block btn--sm" href="/products/<%= product.id %>" aria-label="Ver detalle de <%= product.name %>">Ver detalle</a>
+  </div>
+</article>

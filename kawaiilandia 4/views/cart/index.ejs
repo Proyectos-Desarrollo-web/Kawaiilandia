@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+<body>
+  <%- include('../partials/header') %>
+
+  <main id="contenido" class="page-main">
+    <div class="container">
+      <h1 class="page-title">Tu carrito 🛒</h1>
+
+      <% if (items.length) { %>
+        <p>Tienes <strong><%= count %> <%= count === 1 ? 'producto' : 'productos' %></strong> en tu carrito. Puedes cambiar las cantidades o eliminar lo que no quieras.</p>
+
+        <div class="cart-layout">
+          <ul class="cart-list" aria-label="Productos en el carrito">
+            <% items.forEach((item) => { %>
+              <li class="cart-item">
+                <img class="cart-item__img" src="<%= item.product.image %>" alt="" width="96" height="96">
+                <div>
+                  <h3 class="cart-item__name"><a href="/products/<%= item.product.id %>"><%= item.product.name %></a></h3>
+                  <p class="cart-item__meta"><%= item.option %> · <%= formatPrice(item.product.price) %> c/u</p>
+                  <button class="cart-item__remove" type="button">Eliminar</button>
+                </div>
+                <div class="qty" role="group" aria-label="Cantidad de <%= item.product.name %>">
+                  <button type="button" aria-label="Disminuir cantidad">−</button>
+                  <input type="number" value="<%= item.qty %>" min="1" max="10" aria-label="Cantidad">
+                  <button type="button" aria-label="Aumentar cantidad">+</button>
+                </div>
+                <div class="cart-item__total"><small>Subtotal</small><%= formatPrice(item.lineTotal) %></div>
+              </li>
+            <% }) %>
+          </ul>
+
+          <aside class="summary" aria-labelledby="sum-title">
+            <h2 id="sum-title">Resumen del pedido</h2>
+            <dl>
+              <div class="summary__row"><dt>Subtotal (<%= count %> <%= count === 1 ? 'producto' : 'productos' %>)</dt><dd><%= formatPrice(subtotal) %></dd></div>
+              <div class="summary__row"><dt>Envío</dt><dd>Se calcula al pagar</dd></div>
+              <div class="summary__row summary__row--total"><dt>Total</dt><dd><%= formatPrice(subtotal) %></dd></div>
+            </dl>
+            <a class="btn btn--lg btn--block" href="/login">Proceder al pago</a>
+            <a class="btn btn--ghost btn--block" href="/products">Seguir comprando</a>
+            <p class="summary__note">Inicia sesión para finalizar tu compra de forma segura.</p>
+          </aside>
+        </div>
+      <% } else { %>
+        <p class="empty">Tu carrito está vacío. <a class="link" href="/products">Explora el catálogo</a>.</p>
+      <% } %>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

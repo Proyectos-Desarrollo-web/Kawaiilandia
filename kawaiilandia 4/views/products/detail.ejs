@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+<body>
+  <%- include('../partials/header') %>
+
+  <main id="contenido" class="page-main">
+    <div class="container">
+      <% if (status === 'creado' || status === 'actualizado') { %>
+        <div class="alert alert--ok" role="status"><span aria-hidden="true">✓</span> Producto <%= status === 'creado' ? 'creado' : 'actualizado' %> correctamente.</div>
+      <% } %>
+
+      <nav aria-label="Ruta de navegación">
+        <ol class="breadcrumb">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/products">Productos</a></li>
+          <li><a href="/products?categoria=<%= encodeURIComponent(product.category) %>"><%= product.category %></a></li>
+          <li aria-current="page"><%= product.name %></li>
+        </ol>
+      </nav>
+
+      <div class="detail">
+        <div class="detail__gallery">
+          <img src="<%= product.image %>" onerror="this.onerror=null;this.src='/img/logo.svg'" alt="<%= product.name %>" width="400" height="400">
+        </div>
+
+        <div class="detail__info">
+          <% if (product.tag) { %><span class="pill"><%= product.tag %></span><% } %>
+          <h1 style="margin-top:10px"><%= product.name %></h1>
+          <div class="detail__stars" aria-label="Valoración: 5 de 5 estrellas">★★★★★</div>
+          <p class="detail__price"><%= formatPrice(product.price) %> <small style="font-size:.9rem;font-weight:600;color:var(--muted)">COP · IVA incluido</small></p>
+          <p><%= product.description %></p>
+
+          <form class="detail__buy" action="/carrito" method="get">
+            <% if (product.colors && product.colors.length) { %>
+              <div class="field">
+                <label for="color">Color</label>
+                <select id="color" name="color">
+                  <% product.colors.forEach((color, i) => { %>
+                    <option<%= i === 0 ? ' selected' : '' %>><%= color %></option>
+                  <% }) %>
+                </select>
+              </div>
+            <% } %>
+            <% if (product.sizes && product.sizes.length) { %>
+              <div class="field">
+                <label for="size">Tamaño</label>
+                <select id="size" name="size">
+                  <% product.sizes.forEach((size, i) => { %>
+                    <option<%= i === 0 ? ' selected' : '' %>><%= size %></option>
+                  <% }) %>
+                </select>
+              </div>
+            <% } %>
+            <div class="field">
+              <span class="label" id="qty-label">Cantidad</span>
+              <div class="qty" role="group" aria-labelledby="qty-label">
+                <button type="button" aria-label="Disminuir cantidad">−</button>
+                <input type="number" name="qty" value="1" min="1" max="10" aria-label="Cantidad">
+                <button type="button" aria-label="Aumentar cantidad">+</button>
+              </div>
+            </div>
+            <div class="btn-group">
+              <button class="btn btn--lg" type="submit">🛒 Agregar al carrito</button>
+              <a class="btn btn--whatsapp btn--lg" href="<%= contact.whatsapp %>?text=<%= encodeURIComponent('Hola Kawaiilandia, me interesa: ' + product.name) %>" target="_blank" rel="noopener noreferrer">Consultar 💬</a>
+            </div>
+          </form>
+
+          <ul class="perks">
+            <li>🚀 Envíos a todo Colombia</li>
+            <li>📍 Recógelo en C.C. San Gil Plaza</li>
+            <li>🎁 Te lo empacamos para regalo</li>
+          </ul>
+
+          <h2 style="font-size:1.4rem">Características</h2>
+          <table class="specs">
+            <tbody>
+              <tr><th scope="row">Categoría</th><td><%= product.category %></td></tr>
+              <% if (product.colors && product.colors.length) { %><tr><th scope="row">Colores</th><td><%= product.colors.join(', ') %></td></tr><% } %>
+              <% if (product.material) { %><tr><th scope="row">Material</th><td><%= product.material %></td></tr><% } %>
+              <% if (product.sizes && product.sizes.length) { %><tr><th scope="row">Tamaños</th><td><%= product.sizes.join(', ') %></td></tr><% } %>
+            </tbody>
+          </table>
+
+          <p style="margin-top:20px"><a class="btn btn--ghost btn--sm" href="/products/<%= product.id %>/edit">✏️ Editar producto</a></p>
+
+          <form action="/products/<%= product.id %>?_method=DELETE" method="post" onsubmit="return confirm('¿Seguro que quieres eliminar este producto? Esta acción no se puede deshacer.');">
+            <button class="btn btn--ghost btn--sm btn--danger" type="submit">🗑️ Eliminar producto</button>
+          </form>
+        </div>
+      </div>
+
+      <% if (related.length) { %>
+        <section class="related" aria-labelledby="rel-title">
+          <h2 id="rel-title">También te puede <em style="font-style:normal;color:var(--pink)">gustar</em></h2>
+          <div class="grid grid--cards">
+            <% related.forEach((item) => { %>
+              <%- include('../partials/product-card', { product: item }) %>
+            <% }) %>
+          </div>
+        </section>
+      <% } %>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

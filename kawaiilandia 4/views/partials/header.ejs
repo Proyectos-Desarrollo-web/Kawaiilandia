@@ -1,0 +1,28 @@
+<%
+  const current = locals.active || '';
+  const aria = (key) => (current === key ? ' aria-current="page"' : '');
+%>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <div class="container header__inner">
+    <a class="brand" href="/">
+      <img src="/img/logo.svg" alt="" width="40" height="40">
+      <span class="brand__name">Kawaii<span>landia</span></span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Mostrar u ocultar el menú">
+    <label for="nav-toggle" class="nav-burger" aria-hidden="true"><span></span></label>
+    <nav class="nav" aria-label="Principal">
+      <a href="/"<%- aria('home') %>>Inicio</a>
+      <a href="/products"<%- aria('products') %>>Productos</a>
+      <a href="/#nosotros">Nosotros</a>
+      <a href="/#contacto">Contacto</a>
+      <div class="nav__actions">
+        <a class="btn btn--ghost btn--sm" href="/login"<%- aria('login') %>>Ingresar</a>
+        <a class="btn btn--sm" href="/registro"<%- aria('register') %>>Crear cuenta</a>
+      </div>
+    </nav>
+    <a class="cart-link" href="/carrito" aria-label="Carrito de compras, <%= cartCount %> productos"<%- aria('cart') %>>
+      <span aria-hidden="true">🛒</span><span class="cart-link__count" aria-hidden="true"><%= cartCount %></span>
+    </a>
+  </div>
+</header>

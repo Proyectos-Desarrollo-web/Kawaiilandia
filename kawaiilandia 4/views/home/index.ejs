@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+<body>
+  <%- include('../partials/header') %>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="container hero__grid">
+        <div>
+          <p class="hero__kicker">San Gil · Santander</p>
+          <h1>KAWAII<br>LANDIA</h1>
+          <p class="hero__lead">Tu universo kawaii en el corazón de San Gil 🌸 Peluches, mugs, termos, cuadros, globos burbuja y detalles para regalar.</p>
+          <div class="hero__actions">
+            <a class="btn btn--orange btn--lg" href="#productos">Ver productos ✨</a>
+            <a class="btn btn--outline-light btn--lg" href="<%= contact.whatsapp %>" target="_blank" rel="noopener noreferrer">Contáctanos 💬</a>
+          </div>
+          <div class="hero__stats">
+            <div><strong>500+</strong>Productos</div>
+            <div><strong>★ 5.0</strong>Valoración</div>
+            <div><strong>2+</strong>Años</div>
+          </div>
+        </div>
+        <div class="hero__collage" aria-hidden="true">
+          <% featured.slice(0, 4).forEach((p) => { %>
+            <img src="<%= p.image %>" alt="" width="400" height="400">
+          <% }) %>
+          <span class="hero__badge hero__badge--top">¡Nuevo! 🌟</span>
+          <span class="hero__badge hero__badge--bottom">+500 items 💝</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <% for (let i = 0; i < 4; i++) { %>
+          <div class="ticker__group"><% site.ticker.forEach((item) => { %><span><%= item %></span><% }) %></div>
+        <% } %>
+      </div>
+    </div>
+
+    <section class="section" id="categorias">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">★ Lo que ofrecemos ★</span>
+          <h2>Nuestras <em>Categorías</em></h2>
+        </div>
+        <div class="grid grid--cats">
+          <% site.categories.forEach((cat) => { %>
+            <a class="category-card" href="<%= cat.filter ? '/products?categoria=' + encodeURIComponent(cat.filter) : '/products' %>" style="border-color: <%= cat.color %>33">
+              <div class="category-card__img">
+                <img src="<%= cat.image %>" alt="" width="400" height="400" loading="lazy">
+                <span class="pill" style="background: <%= cat.color %>"><%= cat.tag %></span>
+              </div>
+              <div class="category-card__body">
+                <h3><%= cat.title %></h3>
+                <p><%= cat.description %></p>
+                <span class="category-card__more" style="color: <%= cat.color %>">Ver productos →</span>
+              </div>
+            </a>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="productos">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">★ Favoritos de la tienda ★</span>
+          <h2>Productos <em>destacados</em></h2>
+          <p>Un vistazo rápido a lo que encontrarás en Kawaiilandia. ¡Y en tienda hay muchísimo más!</p>
+        </div>
+        <div class="grid grid--cards">
+          <% featured.forEach((product) => { %>
+            <%- include('../partials/product-card', { product }) %>
+          <% }) %>
+        </div>
+        <div class="section__cta">
+          <a class="btn btn--lg" href="/products">Ver todo el catálogo</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="nosotros">
+      <div class="container about">
+        <div>
+          <span class="eyebrow" style="color:#ffd700">★ Nuestra historia</span>
+          <h2>El mundo <em>kawaii</em> llega a San Gil</h2>
+          <p>Kawaiilandia nació de la pasión por la cultura japonesa y el amor por lo adorable. Somos el punto de encuentro para fans del anime, manga y todo lo kawaii en San Gil, Santander.</p>
+          <p>Encontrarás peluches suaves, mugs, termos, cuadros en aluminio, globos burbuja y ancheteas armadas a tu gusto. Renovamos constantemente nuestro inventario para traerte lo más nuevo.</p>
+          <a class="btn btn--orange btn--lg" href="<%= contact.whatsapp %>" target="_blank" rel="noopener noreferrer">Háblanos por WhatsApp 💬</a>
+        </div>
+        <div class="about__features">
+          <% site.features.forEach((f) => { %>
+            <div class="feature">
+              <span class="feature__icon" aria-hidden="true"><%= f.icon %></span>
+              <h3><%= f.title %></h3>
+              <p><%= f.text %></p>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="resenas">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">★ Lo que dicen nuestros clientes ★</span>
+          <h2>Reseñas <em>★★★★★</em></h2>
+        </div>
+        <div class="grid grid--3">
+          <% site.reviews.forEach((r) => { %>
+            <blockquote class="review" style="border-color: <%= r.color %>44">
+              <div class="review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <p>“<%= r.text %>”</p>
+              <footer><span class="review__avatar" style="background: <%= r.color %>" aria-hidden="true"><%= r.avatar %></span><%= r.name %></footer>
+            </blockquote>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="faq">
+      <div class="container">
+        <div class="section__head"><h2>Preguntas <em style="color:#a855f7">Frecuentes</em></h2></div>
+        <div class="faq">
+          <% site.faqs.forEach((item, i) => { %>
+            <details<%= i === 0 ? ' open' : '' %>>
+              <summary><%= item.q %></summary>
+              <p><%= item.a %></p>
+            </details>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark text-center" id="contacto">
+      <div class="container">
+        <h2>¡Visítanos <em>hoy!</em></h2>
+        <p style="font-size:1.2rem;max-width:36ch;margin-inline:auto">Estamos esperándote en San Gil. Ven a descubrir tu nuevo lugar favorito.</p>
+        <div class="contact__cards">
+          <div class="contact__card"><span aria-hidden="true">📍</span><h3>Dirección</h3><p><%- contact.address.join('<br>') %></p></div>
+          <div class="contact__card"><span aria-hidden="true">📞</span><h3>Teléfono</h3><p><%= contact.phone %></p></div>
+          <div class="contact__card"><span aria-hidden="true">🕐</span><h3>Horarios</h3><p><%- contact.hours.join('<br>') %></p></div>
+        </div>
+        <div class="contact__actions">
+          <a class="btn btn--whatsapp btn--lg" href="<%= contact.whatsapp %>" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+          <a class="btn btn--instagram btn--lg" href="<%= contact.instagram %>" target="_blank" rel="noopener noreferrer"><%= contact.instagramHandle %></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

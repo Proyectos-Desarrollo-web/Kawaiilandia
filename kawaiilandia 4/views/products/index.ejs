@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+<body>
+  <%- include('../partials/header') %>
+
+  <main id="contenido" class="page-main">
+    <div class="container">
+      <% if (status === 'eliminado') { %>
+        <div class="alert alert--ok" role="status"><span aria-hidden="true">✓</span> Producto eliminado correctamente.</div>
+      <% } %>
+
+      <div class="toolbar">
+        <div>
+          <h1 class="page-title">Productos</h1>
+          <p>
+            <% if (selectedCategory) { %>
+              <%= products.length %> <%= products.length === 1 ? 'producto' : 'productos' %> en <strong><%= selectedCategory %></strong>.
+            <% } else { %>
+              Todo el catálogo de Kawaiilandia: <%= products.length %> <%= products.length === 1 ? 'producto' : 'productos' %>.
+            <% } %>
+          </p>
+        </div>
+        <a class="btn btn--lg" href="/products/create">＋ Nuevo producto</a>
+      </div>
+
+      <nav class="chips" aria-label="Filtrar por categoría">
+        <a class="chip<%= selectedCategory ? '' : ' chip--active' %>" href="/products"<%- selectedCategory ? '' : ' aria-current="true"' %>>Todos</a>
+        <% categories.forEach((cat) => { %>
+          <a class="chip<%= selectedCategory === cat ? ' chip--active' : '' %>" href="/products?categoria=<%= encodeURIComponent(cat) %>"<%- selectedCategory === cat ? ' aria-current="true"' : '' %>><%= cat %></a>
+        <% }) %>
+      </nav>
+
+      <% if (products.length) { %>
+        <div class="grid grid--cards">
+          <% products.forEach((product) => { %>
+            <%- include('../partials/product-card', { product }) %>
+          <% }) %>
+        </div>
+      <% } else { %>
+        <p class="empty">Aún no hay productos en esta categoría. <a class="link" href="/products/create">¡Agrega el primero!</a></p>
+      <% } %>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

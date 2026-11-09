@@ -1,0 +1,120 @@
+<%
+  const isEdit = mode === 'edit';
+  const action = isEdit ? `/products/${product.id}?_method=PUT` : '/products';
+  const heading = isEdit ? 'Editar producto' : 'Nuevo producto';
+  const hasErrors = Object.keys(errors).length > 0;
+  const invalid = (name) => (errors[name] ? ' field--error' : '');
+  const aria = (name) => (errors[name] ? ` aria-invalid="true" aria-describedby="${name}-error"` : '');
+%>
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+<body>
+  <%- include('../partials/header') %>
+
+  <main id="contenido" class="page-main">
+    <div class="container">
+      <nav aria-label="Ruta de navegación">
+        <ol class="breadcrumb">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/products">Productos</a></li>
+          <% if (isEdit) { %><li><a href="/products/<%= product.id %>"><%= product.name %></a></li><% } %>
+          <li aria-current="page"><%= heading %></li>
+        </ol>
+      </nav>
+
+      <div class="form-card">
+        <h1 class="page-title"><%= isEdit ? '✏️' : '✨' %> <%= heading %></h1>
+        <p><%= isEdit ? 'Modifica los datos y guarda los cambios.' : 'Completa los datos para agregar un producto al catálogo.' %></p>
+
+        <% if (hasErrors) { %>
+          <div class="alert alert--error" role="alert"><span aria-hidden="true">⚠</span> Revisa los campos marcados en rojo para continuar.</div>
+        <% } %>
+
+        <form class="product-form" action="<%= action %>" method="post" novalidate>
+          <div class="field field--full<%= invalid('name') %>">
+            <label for="name">Nombre del producto</label>
+            <input id="name" name="name" type="text" maxlength="60" value="<%= values.name %>" required<%- aria('name') %>>
+            <% if (errors.name) { %><p class="field__error" id="name-error"><%= errors.name %></p><% } %>
+          </div>
+
+          <div class="field<%= invalid('category') %>">
+            <label for="category">Categoría</label>
+            <select id="category" name="category" required<%- aria('category') %>>
+              <option value="">Selecciona una categoría</option>
+              <% categories.forEach((cat) => { %>
+                <option value="<%= cat %>"<%= values.category === cat ? ' selected' : '' %>><%= cat %></option>
+              <% }) %>
+            </select>
+            <% if (errors.category) { %><p class="field__error" id="category-error"><%= errors.category %></p><% } %>
+          </div>
+
+          <div class="field<%= invalid('price') %>">
+            <label for="price">Precio (COP)</label>
+            <input id="price" name="price" type="text" inputmode="numeric" placeholder="49900" value="<%= values.price %>" required<%- aria('price') %>>
+            <% if (errors.price) { %><p class="field__error" id="price-error"><%= errors.price %></p>
+            <% } else { %><p class="field__hint">Solo números, sin puntos ni comas.</p><% } %>
+          </div>
+
+          <div class="field field--full<%= invalid('description') %>">
+            <label for="description">Descripción</label>
+            <textarea id="description" name="description" rows="4" maxlength="400" required<%- aria('description') %>><%= values.description %></textarea>
+            <% if (errors.description) { %><p class="field__error" id="description-error"><%= errors.description %></p>
+            <% } else { %><p class="field__hint">Entre 10 y 400 caracteres.</p><% } %>
+          </div>
+
+          <div class="field<%= invalid('tag') %>">
+            <label for="tag">Etiqueta <small>(opcional)</small></label>
+            <input id="tag" name="tag" type="text" maxlength="20" placeholder="Nuevo, Más vendido…" value="<%= values.tag %>"<%- aria('tag') %>>
+            <% if (errors.tag) { %><p class="field__error" id="tag-error"><%= errors.tag %></p><% } %>
+          </div>
+
+          <div class="field<%= invalid('material') %>">
+            <label for="material">Material <small>(opcional)</small></label>
+            <input id="material" name="material" type="text" maxlength="80" placeholder="Felpa suave" value="<%= values.material %>"<%- aria('material') %>>
+            <% if (errors.material) { %><p class="field__error" id="material-error"><%= errors.material %></p><% } %>
+          </div>
+
+          <div class="field field--full<%= invalid('colors') %>">
+            <label for="colors">Colores <small>(opcional)</small></label>
+            <input id="colors" name="colors" type="text" placeholder="Rosa, Blanco, Celeste" value="<%= values.colors %>"<%- aria('colors') %>>
+            <% if (errors.colors) { %><p class="field__error" id="colors-error"><%= errors.colors %></p>
+            <% } else { %><p class="field__hint">Sepáralos con comas.</p><% } %>
+          </div>
+
+          <div class="field field--full<%= invalid('sizes') %>">
+            <label for="sizes">Tamaños <small>(opcional)</small></label>
+            <input id="sizes" name="sizes" type="text" placeholder="25 cm, 35 cm, 50 cm" value="<%= values.sizes %>"<%- aria('sizes') %>>
+            <% if (errors.sizes) { %><p class="field__error" id="sizes-error"><%= errors.sizes %></p>
+            <% } else { %><p class="field__hint">Sepáralos con comas.</p><% } %>
+          </div>
+
+          <div class="field<%= invalid('imageFile') %>">
+            <label for="imageFile">Imagen</label>
+            <select id="imageFile" name="imageFile"<%- aria('imageFile') %>>
+              <% images.forEach((img) => { %>
+                <option value="<%= img.file %>"<%= values.imageFile === img.file ? ' selected' : '' %>><%= img.label %></option>
+              <% }) %>
+            </select>
+            <% if (errors.imageFile) { %><p class="field__error" id="imageFile-error"><%= errors.imageFile %></p><% } %>
+          </div>
+
+          <div class="field<%= invalid('imageUrl') %>">
+            <label for="imageUrl">…o URL de otra foto <small>(opcional)</small></label>
+            <input id="imageUrl" name="imageUrl" type="url" placeholder="https://…" value="<%= values.imageUrl %>"<%- aria('imageUrl') %>>
+            <% if (errors.imageUrl) { %><p class="field__error" id="imageUrl-error"><%= errors.imageUrl %></p>
+            <% } else { %><p class="field__hint">Si la escribes, se usa en lugar de la foto de la lista.</p><% } %>
+          </div>
+
+          <div class="form-actions field--full">
+            <button class="btn btn--lg" type="submit"><%= isEdit ? 'Guardar cambios 💾' : 'Crear producto ✨' %></button>
+            <a class="btn btn--ghost btn--lg" href="<%= isEdit ? '/products/' + product.id : '/products' %>">Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>
